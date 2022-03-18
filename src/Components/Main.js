@@ -4,6 +4,8 @@ import Info from './Info';
 import axios from 'axios';
 import {useEffect, useState} from "react";
 import Modal from 'react-modal/lib/components/Modal';
+import {useFilters} from 'react-table';
+import ColumnFilter from './ColumnFilter';
 
 
 function Main() {
@@ -15,8 +17,6 @@ function Main() {
   const [prevUrl, setPrevUrl]=useState();
   const [pokeDex,setPokeDex]=useState();
   const [modalIsOpen, setModalIsOpen] = useState(false);
-
-
 
 const pokeFun=async()=>{
   setLoading(true);
@@ -57,12 +57,13 @@ useEffect(()=>{
               <button onClick={()=>setModalIsOpen(false)}>Close</button>
             </div>
             </Modal>
-
             <table className="table table-striped table-bordered">
                 <thead>
                     <tr>
                         <th>Id</th>
-                        <th>Name</th>
+                        <th>Name 
+                          <div>{ColumnFilter.canFilter ? ColumnFilter.render('Filter'):null}</div>
+                          </th>                     
                         <th>Type</th>
                         <th>Sprite</th>
                     </tr>

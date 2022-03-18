@@ -24,7 +24,7 @@ const Row=({pokemon, loading, infoPokemon, modal})=> {
                     <div>{poke.ability.name}</div>
                 )
             })}</td> */}
-            <td><button key={item.id} onClick={()=>{infoPokemon(item); modal(true)}}  >Show</button></td>
+            <td><button key={item.id} onClick={()=>{infoPokemon(item); modal(true)}}>Show</button></td>
         </tr>
                     </>
                     
